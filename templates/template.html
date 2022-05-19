@@ -2,42 +2,61 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="static/css/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
-    <div class="flex-container">
-        <header>
-            <a class="logo" href="">SCH</a>
-            <nav>
-                <a href="index.html">Главная</a>
-                <a href="helpRu.html">Поддержка</a>
-                <a href="articleRu.html">Статьи</a>
-                <a href="aboutusRu.html">Онас</a>
-                <a href="indexEng.html">En</a>
-                <a href="index.html">Ru</a>
-            </nav>
-            <div class="reg_div">
-                <a class="sign_a" href="">
-                    <div class="sign_div">Войти</div>
-                </a>
-                <a class="login_a" href="">
-                    <div class="login_div">Создать</div>
-                </a>
-            </div>
-        </header>
-        <main>
-            <aside></aside>
-            <section>{% block section %}{% endblock %}</section>в
-            <aside></aside>
-        </main>
-        <footer></footer>
+  <aside>
+      <div class="myBar" id="barOne"></div>
+      <div class="myBar" id="barTwo"></div>
+      <div class="myBar" id="barThree"></div>
+      <div class="myBar" id="barFour"></div>
+    <div class="logo">
+      <img src="static/svg/logo.svg" alt="no logo">
+      <h1>Learny</h1>
     </div>
-    <script src="script.js"></script>
+    <div class="menu-container">
+      <div mouseenter class="menu-item">
+        <img src="static/svg/home.svg" alt="no svg" class="menu-icon">
+        <h2 class="menu-title">Home</h2>
+      </div>
+      <div class="menu-item">
+        <img src="static/svg/graph.svg" alt="no svg" class="menu-icon">
+        <h2 class="menu-title">Progress</h2>
+      </div>
+      <div class="menu-item">
+        <img src="static/svg/chat.svg" alt="no svg" class="menu-icon">
+        <h2 class="menu-title">Messages</h2>
+      </div>
+      <div class="menu-item">
+        <img src="static/svg/settings.svg" alt="no svg" class="menu-icon">
+        <h2 class="menu-title">Settings</h2>
+      </div>
+    </div>
+    <div class="support">
+      <div>
+        <h2>Support 24/7</h2>
+        <h3>Contact us anytime</h3>
+        <button>Start</button>
+      </div>
+      <img src="static/svg/support-man.svg" alt="no svg">
+    </div>
+  </aside>
+  <main>
+    <div class="main-header">
+      <input type="search" placeholder="Search..." class="search">
+    </div>
+  </main>
+  <script src="static/script.js"></script>
 </body>
 
 </html>
