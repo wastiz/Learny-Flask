@@ -16,22 +16,24 @@
 
 <body>
   <aside>
-      <div class="myBar" id="barOne"></div>
-      <div class="myBar" id="barTwo"></div>
-      <div class="myBar" id="barThree"></div>
-      <div class="myBar" id="barFour"></div>
+    <div class="myBar" id="barOne"></div>
+    <div class="myBar" id="barTwo"></div>
+    <div class="myBar" id="barThree"></div>
+    <div class="myBar" id="barFour"></div>
     <div class="logo">
       <img src="static/svg/logo.svg" alt="no logo">
       <h1>Learny</h1>
     </div>
     <div class="menu-container">
-      <div mouseenter class="menu-item">
+      <div class="menu-item">
         <img src="static/svg/home.svg" alt="no svg" class="menu-icon">
         <h2 class="menu-title">Home</h2>
       </div>
       <div class="menu-item">
-        <img src="static/svg/graph.svg" alt="no svg" class="menu-icon">
-        <h2 class="menu-title">Progress</h2>
+
+          <img src="static/svg/graph.svg" alt="no svg" class="menu-icon">
+          <h2 class="menu-title">Progress</h2>
+
       </div>
       <div class="menu-item">
         <img src="static/svg/chat.svg" alt="no svg" class="menu-icon">
@@ -52,9 +54,8 @@
     </div>
   </aside>
   <main>
-    <div class="main-header">
-      <input type="search" placeholder="Search..." class="search">
-    </div>
+    {% block main %}
+    {% endblock %}
   </main>
   <script src="static/script.js"></script>
 </body>

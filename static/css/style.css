@@ -6,7 +6,12 @@ body{
     margin: 0px;
     padding: 0px;
     background-color: #503E9D;
-
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+a {
+    display: flex;
+    flex-direction: row;
 }
 .myBar{
     width: 330px;
@@ -16,6 +21,7 @@ body{
     left: 360px;
     z-index: 1;
     border-radius: 40px;
+    transition: 0.5s;
 }
 #barOne{
     top: 238px;
@@ -28,6 +34,12 @@ body{
 }
 #barFour{
     top: 412px;
+}
+.barAnimation{
+    left: 80px;
+}
+.barStart{
+    left: 360px;
 }
 aside{
     display: flex;
@@ -45,6 +57,9 @@ main{
     border: 10px solid white;
     border-radius: 48px;
     z-index: 2;
+}
+.main-container{
+    padding: 3%;
 }
 .logo{
     display: flex;
@@ -67,6 +82,7 @@ main{
     display: flex;
     flex-direction: row;
     gap: 27px;
+    user-select: none;
 }
 .menu-icon{
     width: 24px;
@@ -115,6 +131,9 @@ main{
     font-family: 'Poppins', sans-serif;
     border: 0px solid #FB6D3A;
 }
+.support button:hover{
+    color: black;
+}
 .support img{
     width: 124px;
     height: 172.68px;
@@ -126,9 +145,15 @@ main{
     display: flex;
     flex-direction: row;
     gap: 15px;
+    padding-bottom: 2%;
+    justify-content: space-between;
+}
+.end-header{
+    display: flex;
+    gap: 40px;
 }
 .search{
-    width: 70%;
+    width: 85%;
     height: 60px;
     border-radius: 20px;
     border: 0px solid #E7E7E6;
@@ -136,4 +161,139 @@ main{
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     padding-left: 5%;
+}
+.user-button{
+    display: flex;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border: 0px solid white;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.main-header div img{
+    width: 32px;
+}
+.user-button:hover{
+    border: 2px solid black;
+}
+.orange-bell{
+    background-color: #FB6D3A;
+    display: flex;
+    width: 60px;
+    height: 60px;
+    border: 0px solid white;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+.orange-bell:hover{
+    border: 2px solid black;
+}
+.card-list{
+    width: 102%;
+    max-height: 620px;
+    overflow: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2.3%;
+}
+.card-container{
+    margin-top: 2.3%;
+    display: flex;
+    flex-direction: column;
+    width: 440px;
+    height: 390px;
+    border-radius: 48px;
+    background-image: url('../img/tutorialBack.jpg');
+    background-position: center;
+    background-size: cover;
+
+}
+.card-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: 23px;
+    align-items: center;
+}
+.card-header img{
+    width: 73px;
+    height: 73px;
+}
+.card-name{
+    display: flex;
+    flex-direction: column;
+}
+.card-name h2{
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+.card-title{
+    margin-top: 11px;
+}
+.card-author{
+    margin-top: -19px;
+}
+.card-timeline{
+    display: flex;
+    width: 68px;
+    height: 36px;
+    color: white;
+    background-color: #FB6D3A;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    align-items: center;
+    justify-content: center;
+    margin-right: 33px;
+}
+.new{
+    display: flex;
+}
+.card-naming {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; 
+    top: 160px;
+    left: 36px;
+    width: 368px;
+    height: 88px;
+    background-color: rgba(60, 17, 134, 80%);
+    border-radius: 24px;
+}
+.card-naming h3{
+    opacity: 100%;
+    color: #fff; 
+}
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+    width: 12px; /* ширина для вертикального скролла */
+    height: 12px; /* высота для горизонтального скролла */
+    background-color: #DFDFE3;
+    border-radius: 20px;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+    background-color: #FB6D3A;
+    border-radius: 20px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.status{
+    width: 100px;
+    height: 100px;
+    
 }

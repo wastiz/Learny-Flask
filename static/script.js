@@ -1,104 +1,106 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log('hello world');
+    
 
     const menuContainer = document.querySelector('.menu-container');
     const menuItem = document.querySelectorAll(".menu-item");
     const bar = document.querySelectorAll(".myBar");
-    let left = 360;
+    let left = [360, 360, 360, 360];
     const menuTitle = document.querySelectorAll('.menu-title');
     const menuIcon = document.querySelectorAll('.menu-icon');
 
-    function move(i) {
-        var id = setInterval(frame, 1);
 
-        function frame() {
-                if (left == 80) {
-                    clearInterval(id);
-                    return left;
-                } else {
-                    left = left - 8;
-                    bar[i].style.left = left + 'px';
-                }
-        }
-    }
-    function remove(i) {
-        var id = setInterval(frame, 1);
-        function frame() {
-                if (left == 360) {
-                    clearInterval(id);
-                    return left;
-                } else {
-                    left = left + 8;
-                    bar[i].style.left = left + 'px';
-                }
-        }
-    }
-
-
-    menuItem.forEach(function(item) {
-        item.addEventListener('mouseenter', function(e) {
+    menuItem.forEach(function (item) {
+        item.addEventListener('mouseover', function(e){
             if(e.target == menuItem[0]){
-                setTimeout(function() {
-                    if (left == 360){
-                        move(0);
-                    } 
-                }, 400);
+                bar[0].classList.remove('barStart');
+                bar[0].classList.add('barAnimation');
                 menuTitle[0].style.color = 'black';
             } else if(e.target == menuItem[1]){
-                setTimeout(function() {
-                    if (left == 360){
-                        move(1);
-                    } 
-                }, 400);
+                bar[1].classList.remove('barStart');
+                bar[1].classList.add('barAnimation');
                 menuTitle[1].style.color = 'black';
             } else if(e.target == menuItem[2]){
-                setTimeout(function() {
-                    if (left == 360){
-                        move(2);
-                    } 
-                }, 400);
+                bar[2].classList.remove('barStart');
+                bar[2].classList.add('barAnimation');
                 menuTitle[2].style.color = 'black';
             } else if(e.target == menuItem[3]){
-                setTimeout(function() {
-                    if (left == 360){
-                        move(3);
-                    } 
-                }, 400);
+                bar[3].classList.remove('barStart');
+                bar[3].classList.add('barAnimation');
                 menuTitle[3].style.color = 'black';
             }
         });
-        item.addEventListener('mouseleave', function(e) {
+        item.addEventListener('mouseleave', function(e){
             if(e.target == menuItem[0]){
-                    if (left == 80){
-                        remove(0);
-                    } 
+                bar[0].classList.remove('barAnimation');
+                bar[0].classList.add('barStart');
                 menuTitle[0].style.color = 'white';
             } else if(e.target == menuItem[1]){
-                    if (left == 80){
-                        remove(1);
-                    } 
+                bar[1].classList.remove('barAnimation');
+                bar[1].classList.add('barStart');
                 menuTitle[1].style.color = 'white';
             } else if(e.target == menuItem[2]){
-                    if (left == 80){
-                        remove(2);
-                    } 
+                bar[2].classList.remove('barAnimation');
+                bar[2].classList.add('barStart');
                 menuTitle[2].style.color = 'white';
             } else if(e.target == menuItem[3]){
-                    if (left == 80){
-                        remove(3);
-                    } 
+                bar[3].classList.remove('barAnimation');
+                bar[3].classList.add('barStart');
                 menuTitle[3].style.color = 'white';
+            }  
+        });
+        item.addEventListener('click', function(e) {
+            if(e.target == menuItem[0]){
+                window.open("home", "_self");
+            } else if (e.target == menuItem[1]){
+                window.open("login", "_self");
             }
         });
     });
-    // menuItem[0].addEventListener('mouseenter', function(e){
-    //     move();
-    //     menuTitle[0].style.color = 'black';
-    // });
-    // menuItem[0].addEventListener('mouseleave', function(){
-    //     remove();   
-    //     menuTitle[0].style.color = 'white';
-    // });
+
+
+    const forms = document.querySelectorAll('form');
+    const message = {
+        loading: 'Loading',
+        success: 'Success',
+        failure: 'Failure',
+    };
+
+    forms.forEach(item => {
+        postData(item);
+    });
+
+    function postData(form) {
+        form.addEventListener('submit', function(e){
+            e.preventDefault();
+            const statusMessage = document.createElement('div');
+            statusMessage.classList.add('status');
+            statusMessage.textContent = message.loading;
+            form.append(statusMessage);
+            const request =  new XMLHttpRequest();
+            request.open('POST', '../server.php');
+            //request.setRequestHeader('Content-Type', 'multipart/form-data');
+            //Когда мы используем связку XMLHttpRequest + formData, тогда заголовок не надо делать, ведь он создается автоматически
+            const formData = new FormData(form); //Более упрощенный вариант для отправки данных с форм.
+            //в верстке в динамических элементов, с которых мы хотим отпраить данные ставим атрибут name
+            request.send(formData);
+            request.addEventListener('load', function(){
+                if(request.status === 200) {
+                    console.log(request.response);
+                    statusMessage.textContent = message.success;
+                    form.reset();
+                    setTimeout(function(){
+                        statusMessage.remove();
+                    }, 2000);
+                } else {
+                    statusMessage.textContent = message.failure;
+                }
+            });
+        });
+    }
+
+
+
+
 });
